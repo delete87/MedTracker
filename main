@@ -1,4 +1,5 @@
 your-repo/
 │
 ├─ index.html
+├─manifest.json
 └─style.css
