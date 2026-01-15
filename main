@@ -1,5 +1,6 @@
 your-repo/
 │
 ├─ index.html
-├─manifest.json
+├─ manifest.json
+├─ sw.js
 └─style.css
