@@ -23,8 +23,6 @@
 
 <script>
 let meds = JSON.parse(localStorage.getItem('meds')) || [];
-
-// Tweak this number to change when low-pill warnings and red border appear
 const LOW_PILL_THRESHOLD = 5;
 
 function saveMeds() {
@@ -72,7 +70,7 @@ function render() {
     const isLow = med.pills <= LOW_PILL_THRESHOLD;
     const warningHTML = isLow ? `<div class="low-warning">⚠ Low supply – refill soon</div>` : '';
 
-    if (isLow) div.style.borderColor = 'red'; // Red border for low meds
+    if (isLow) div.style.borderColor = 'red';
 
     div.innerHTML = `
       <div class="med-header">
@@ -80,13 +78,11 @@ function render() {
         <span>${daysLeft(med)} days left</span>
       </div>
       <div class="med-info">
-        <div>Pills left: ${med.pills}</div>
-        <div>Daily dose: ${med.perDay}</div>
+        Pills left: ${med.pills} · Daily dose: ${med.perDay}
       </div>
       ${warningHTML}
       <button onclick="takeDose(${index})">Taken today</button>
     `;
-
 
     list.appendChild(div);
   });
